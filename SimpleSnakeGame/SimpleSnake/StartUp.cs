@@ -1,5 +1,6 @@
 ﻿namespace SimpleSnake
 {
+    using SimpleSnake.Core;
     using SimpleSnake.GameObjects;
     using Utilities;
 
@@ -11,9 +12,16 @@
 
             Field field = new Field(25, 50);
 
-            Food food = new Food(field);
-            food.CreateFoodPosition();
-            food.InitializeFood();
+            Snake snake = new Snake(field);
+
+            Engine engine = new Engine(field, snake);
+            engine.Run();
+
+            //TODO: When hit the bottom row continuing moving... FIX
+            //      Global problem when hitting the wall
+            //      Add points
+            // Check for more problems
+
         }
     }
 }

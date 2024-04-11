@@ -20,6 +20,11 @@ namespace SimpleSnake.GameObjects
             random = new Random();
             foodSymbol = '*';
         }
+        
+        //TODO: Check if foodNextPosition is part of the snake !!!
+
+        public bool IsFoodPoint(Point snakeHead)
+            => Row == snakeHead.Row && Column == snakeHead.Column;    
 
         public void CreateFoodPosition()
         {
@@ -35,7 +40,7 @@ namespace SimpleSnake.GameObjects
 
             Console.BackgroundColor = ConsoleColor.White;
 
-            Console.SetCursorPosition(0, field.Row + 1);
+            //Console.SetCursorPosition(0, field.Row + 1);
         }
     }
 }

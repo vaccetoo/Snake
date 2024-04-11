@@ -16,6 +16,10 @@ namespace SimpleSnake.GameObjects
             CreateField();
         }
 
+        public bool IsPointOfTheField(Point snakeHead)
+            => snakeHead.Row == 0 || snakeHead.Column == 0 ||
+            snakeHead.Row == this.Row || snakeHead.Column == this.Column;
+
         private void CreateField()
         {
             char[,] field = new char[Row, Column];
