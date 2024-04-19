@@ -10,18 +10,12 @@
         {
             ConsoleWindow.CustomizeConsole();
 
-            Field field = new Field(25, 50);
+            Field field = new Field(26, 50);
 
             Snake snake = new Snake(field);
 
             Engine engine = new Engine(field, snake);
             engine.Run();
-
-            //TODO: When hit the bottom row continuing moving... FIX
-            //      Global problem when hitting the wall
-            //      Add points
-            // Check for more problems
-
         }
     }
 }

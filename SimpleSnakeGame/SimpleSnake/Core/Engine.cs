@@ -21,6 +21,9 @@ namespace SimpleSnake.Core
 
         private float sleepTime;
 
+        private const string GameOverMassage = "GAME OVER";
+        private const string RestartMassage = "Would you like to play again y/n ?";
+
         public Engine(Field field, Snake snake)
         {
             pointDirections = new Point[4];
@@ -58,8 +61,10 @@ namespace SimpleSnake.Core
 
         private void AskUserToRestart()
         {
-            Console.SetCursorPosition(field.Row + 1, field.Column + 1);
-            Console.Write("Would you like to restart y/n");
+            Console.SetCursorPosition(field.Column / 2 - GameOverMassage.Length / 2, field.Row / 2);
+            Console.Write(GameOverMassage);
+            Console.SetCursorPosition(field.Column / 2 - RestartMassage.Length / 2, field.Row / 2 + 1);
+            Console.Write(RestartMassage);
 
             string input = Console.ReadLine();
 
@@ -68,10 +73,9 @@ namespace SimpleSnake.Core
                 Console.Clear();
                 StartUp.Main();
             }
-            else
-            {
-                Console.Write("GAME OVER");
-            }
+
+            Console.SetCursorPosition(field.Column , field.Row );
+            Environment.Exit(0);
         }
 
 
